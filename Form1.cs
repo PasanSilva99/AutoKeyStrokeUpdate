@@ -39,17 +39,23 @@ namespace AutoKeyStroke
 
         private void button2_Click(object sender, EventArgs e)
         {
+            label6.Text = "Force Stop";
             timer1.Stop();
             i = 0;
+            timer1.Enabled = false;
         }
         int s = 1;
         private void timer2_Tick(object sender, EventArgs e)
         {
             try
             {
+                
                 int startin = int.Parse(textBox4.Text);
+                label6.Text = "Start typing in " + ( startin - s ).ToString();
                 if (s >= startin)
                 {
+                    timer1.Enabled = true;
+                    
                     timer1.Start();
                     timer2.Stop();
                 }
@@ -73,17 +79,19 @@ namespace AutoKeyStroke
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label6.Text = i.ToString();
+            label6.Text = i.ToString() + " of " + pulse.ToString();
             try
             {
                 i++;
                 mess = textBox2.Text;
-                SendKeys.SendWait(mess);
-                SendKeys.SendWait("{Enter}");
+                SendKeys.SendWait(mess + "{Enter}");
                 
                 if (i >= pulse)
                 {
+                    label6.Text = "Finished";
                     timer1.Stop();
+                    i = 0;
+                    timer1.Enabled = false;
                 }
             }
             catch
