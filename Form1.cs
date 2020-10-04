@@ -26,8 +26,8 @@ namespace AutoKeyStroke
             try
             {
                 timer2.Start();
-                int INterval = int.Parse(textBox1.Text);
-                pulse = int.Parse(textBox3.Text);
+                int INterval = int.Parse(txt_interval.Text);
+                pulse = int.Parse(txt_count.Text);
                 timer1.Interval = INterval * 100;
             }
             catch
@@ -50,7 +50,7 @@ namespace AutoKeyStroke
             try
             {
                 
-                int startin = int.Parse(textBox4.Text);
+                int startin = int.Parse(txt_startin.Text);
                 label6.Text = "Start typing in " + ( startin - s ).ToString();
                 if (s >= startin)
                 {
@@ -83,7 +83,7 @@ namespace AutoKeyStroke
             try
             {
                 i++;
-                mess = textBox2.Text;
+                mess = txt_textToType.Text;
                 SendKeys.SendWait(mess + "{Enter}");
                 
                 if (i >= pulse)
