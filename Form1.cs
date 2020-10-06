@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,8 +14,8 @@ namespace AutoKeyStroke
     public partial class Form1 : Form
     {
         String message;
-        int i = 0,
-            pulse;
+        int i = 0, pulse;
+
         public Form1()
         {
             InitializeComponent();
