@@ -13,9 +13,9 @@ namespace AutoKeyStroke
     
     public partial class Form1 : Form
     {
-        String mess;
-        int i = 0,
-            pulse;
+        String message;
+        int i = 0, pulse;
+
         public Form1()
         {
             InitializeComponent();
@@ -26,9 +26,9 @@ namespace AutoKeyStroke
             try
             {
                 timer2.Start();
-                int INterval = int.Parse(txt_interval.Text);
+                int interval = int.Parse(txt_interval.Text);
                 pulse = int.Parse(txt_count.Text);
-                timer1.Interval = INterval * 100;
+                timer1.Interval = interval * 100;
             }
             catch
             {
@@ -69,7 +69,7 @@ namespace AutoKeyStroke
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-
+            throw new NotImplementedException();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -83,8 +83,9 @@ namespace AutoKeyStroke
             try
             {
                 i++;
-                mess = txt_textToType.Text;
-                SendKeys.SendWait(mess + "{Enter}");
+                message = txt_textToType.Text;
+
+                SendKeys.SendWait(message + "{Enter}");
                 
                 if (i >= pulse)
                 {
